@@ -8,6 +8,7 @@ This is a decentralized Peer-to-Peer (P2P) chat system that allows users to comm
 - Automatic connection to mandatory peers
 - Querying of active peers
 - Handling of message acknowledgments
+- Bonus question has also been attempted
 - Graceful disconnection management
 
 ## Project Structure

@@ -1,6 +1,5 @@
 import socket
 import threading
-import time
 
 active_peers = {}  # Maps peer IP to their listening port
 received_from = set()  # Tracks peers from whom messages were received
@@ -78,29 +77,11 @@ def connect_to_peer(ip, port, my_port):
     except Exception as e:
         print(f"❌ Error connecting to {ip}:{port} - {e}")
 
-def connect_to_active_peers(my_port):
-    print("\n🔄 Connecting to active peers...\n")
-    X = list(received_from)  # List of IP:PORT from whom you received messages
-    
-    for ip, port in X:
-        if (ip, port) not in active_connections:
-            try:
-                client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-                client_socket.connect((ip, port))
-                client_socket.sendall(f"{my_port}\nCONNECT\n".encode())
-                active_connections[(ip, port)] = client_socket
-                print(f"✅ Successfully connected to {ip}:{port}")
-                
-                ack = client_socket.recv(1024).decode().strip()
-                print(f"📩 Received from {ip}:{port}: {ack}")
-                
-            except Exception as e:
-                print(f"❌ Error connecting to {ip}:{port} - {e}")
-    
-    if not X:
-        print("No active peers to connect to.")
-    else:
-        print("Finished connecting to active peers.")
+def connect():
+    print("\n🔄 Connecting to active peers from received list...\n")
+    for ip, port in list(received_from):
+        connect_to_peer(ip, port, my_port)
+    print("Finished connecting to active peers.")
 
 def send_message(ip, port, my_port):
     if (ip, port) not in active_connections:
@@ -143,20 +124,22 @@ def send_mandatory_messages(my_port):
 def main():
     print("Starting P2P chat application...")
     team_name = input("Enter your team name: ")
+    global my_port
     ip = input("Enter your IP address: ")
-    port = int(input("Enter your port number: "))
+    my_port = int(input("Enter your port number: "))
 
-    server_thread = threading.Thread(target=start_server, args=(ip, port))
+    server_thread = threading.Thread(target=start_server, args=(ip, my_port))
     server_thread.daemon = True
     server_thread.start()
 
-    send_mandatory_messages(port)
+    send_mandatory_messages(my_port)
 
     while True:
         print("\n***** Menu *****")
         print("1. Send message")
         print("2. Query active peers")
         print("3. Connect to active peers")
+        print("4. Connect to received peers")
         print("0. Quit")
 
         choice = input("Enter choice: ")
@@ -174,11 +157,13 @@ def main():
                     recipient_port = int(input("Enter recipient's Port: "))
                 else:
                     recipient_ip, recipient_port = list(active_connections.keys())[choice - 1]
-            send_message(recipient_ip, recipient_port, port)
+            send_message(recipient_ip, recipient_port, my_port)
         elif choice == "2":
             query_peers()
         elif choice == "3":
-            connect_to_active_peers(port)
+            connect_to_active_peers(my_port)
+        elif choice == "4":
+            connect()
         elif choice == "0":
             print("Exiting...")
             break

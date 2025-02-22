@@ -11,6 +11,9 @@ This is a decentralized Peer-to-Peer (P2P) chat system that allows users to comm
 - Bonus question has also been attempted
 - Graceful disconnection management
 
+## Bonus Question Implementation
+The system includes a connect() function that allows peers to establish dynamic connections with active peers after querying. This ensures that newly connected peers are reflected in the active peer list when queried.
+
 ## Project Structure
 ```
 |-- final.py       # Main P2P chat application
@@ -93,8 +96,8 @@ You can modify the `MANDATORY_PEERS` list in `final.py` to include default peers
 
 ## Team Members
 
-- **Nidarsana M** - [GitHub Profile](https://github.com/Nidarsana02)
-- **Tripti Anand** - [GitHub Profile](https://github.com/Tripti1298)
-- **Nandini Kumari** - [GitHub Profile](https://github.com/dini-5002)
+- **Nidarsana M** - [GitHub Profile](https://github.com/Nidarsana02) - Roll no: 230004031
+- **Tripti Anand** - [GitHub Profile](https://github.com/Tripti1298) - Roll no: 230001078
+- **Nandini Kumari** - [GitHub Profile](https://github.com/dini-5002) - Roll no: 230001056
 
 

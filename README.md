@@ -91,12 +91,6 @@ This will attempt to connect to known active peers.
 
 You can modify the `MANDATORY_PEERS` list in `final.py` to include default peers that should always be connected at startup.
 
-## Known Issues & Improvements
-
-- Improve peer discovery mechanism.
-- Enhance disconnection handling.
-- Implement encryption for secure messaging.
-
 ## Team Members
 
 - **Nidarsana M** - [GitHub Profile](https://github.com/Nidarsana02)

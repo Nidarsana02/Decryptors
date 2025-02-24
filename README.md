@@ -1,5 +1,11 @@
 # P2P Chat System - Team Decryptors
 
+## Team Members
+
+- **Nidarsana M** - Roll no: 230004031 - [GitHub Profile](https://github.com/Nidarsana02)
+- **Tripti Anand** - Roll no: 230001078 - [GitHub Profile](https://github.com/Tripti1298) 
+- **Nandini Kumari** - Roll no: 230001056 - [GitHub Profile](https://github.com/dini-5002) 
+
 ## Overview
 This is a decentralized Peer-to-Peer (P2P) chat system that allows users to communicate directly without relying on a central server. The system enables multiple peers to connect, send messages, and maintain an active connection network.
 
@@ -10,6 +16,8 @@ This is a decentralized Peer-to-Peer (P2P) chat system that allows users to comm
 - Handling of message acknowledgments
 - Bonus question has also been attempted
 - Effiecient disconnection management
+- Peer discovery using UDP broadcasts
+
 
 ## Bonus Question Implementation
 The system includes a connect() function that allows peers to establish dynamic connections with active peers after querying. This ensures that newly connected peers are reflected in the active peer list when queried.
@@ -66,26 +74,48 @@ Note: Mandatory connect message will be sent to the specified IP address and por
 
 You can modify the `MANDATORY_PEERS` list in `final.py` to include default peers that should always be connected at startup.
 
+### Main Menu Options
+1. **Send message**
+   - Input recipient's IP and Port to establish a connection and send messages.
+   - Use \`exit\` to disconnect from the recipient.
+   - Use \`menu\` to return to the main menu.
 
+2. **Query active peers**
+   - Displays peers you've received messages from during the current session.
+
+3. **Connect to active peers**
+   - Establishes TCP connections to all known active peers.
+
+4. **Previously connected peers**
+   - Lists all peers you've connected to in previous sessions.
+
+5. **Discover peers**
+   - Broadcasts a UDP message to find peers on the network.
+
+0. **Quit**
+   - Exits the application.
+   - 
 ## What makes our project unique?
 Our projects stands out from the rest as
 
 - The query active peers not only gives the list of active peers, but it also includes the inactive peers to see the history of all the peers who were connected.
-- When, "1-Send messages" is chosen, there appears an additional option to choose whether
-       a. to send messages to already connected peers, or
-       b. send to a new peer.
-     When "a." is chosen, the list of connected peers appear to choose from for the receipient and we can select the index of the peer that we want.
-     When "b." is chosen, user is prompted to enter the IP address and the port of the new peer to be connected to.
 - The user can keep sending messages without the need of entering the IP address and port number of the reciever again and again. While sending messages, if we want to return back to use the menu options, "menu" 
   is to be typed and to disconnect from a peer, just type "exit".
 - Once a peer is identified through querying, the connect_to_peer() function connects with the peers to initiate communication.
+- The query_peers_via_udp() function uses UDP broadcasts to discover available peers on the network, making it simple to find and connect to peers dynamically.
 - To disconnect from a peer, press "1" to send message and specify the index of the peer you want to disconnect from and then type "exit".
 - "0-Quit" terminates the program.
 
+## Code Structure
 
-
-## Team Members
-
-- **Nidarsana M** - [GitHub Profile](https://github.com/Nidarsana02) - Roll no: 230004031
-- **Tripti Anand** - [GitHub Profile](https://github.com/Tripti1298) - Roll no: 230001078
-- **Nandini Kumari** - [GitHub Profile](https://github.com/dini-5002) - Roll no: 230001056
+- **\`handle_client\`**: Manages incoming TCP connections.
+- **\`send_message\`**: Sends messages to connected peers.
+- **\`start_server\`**: Initializes the TCP server.
+- **\`start_udp_listener\`**: Listens for peer discovery UDP broadcasts.
+- **\`query_peers_via_udp\`**: Broadcasts a discovery request to find peers.
+- **\`query_peers\`**: Lists currently active peers.
+- **\`query_previous_peers\`**: Lists previously connected peers.
+- **\`connect_to_peer\`**: Establishes a TCP connection to a peer.
+- **\`connect_to_active_peers\`**: Connects to all known active peers.
+- **\`send_mandatory_messages\`**: Sends messages to predefined mandatory peers.
+- **\`main\`**: Entry point that initializes the server, UDP listener, and user interface.

@@ -64,10 +64,10 @@ Note: Mandatory connect message will be sent to the specified IP address and por
 
 3. Use the menu options to:
 
-  1 - Send messages
-  2 - Query active peers
-  3 - Connect to known peers
-  0 - Quit 
+    1 - Send messages
+    2 - Query active peers
+    3 - Connect to known peers
+    0 - Quit 
 
 
 ### Mandatory Peers
@@ -94,7 +94,7 @@ You can modify the `MANDATORY_PEERS` list in `final.py` to include default peers
 
 0. **Quit**
    - Exits the application.
-   - 
+     
 ## What makes our project unique?
 Our projects stands out from the rest as
 

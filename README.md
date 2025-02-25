@@ -44,7 +44,7 @@ The system includes a connect() function that allows peers to establish dynamic 
 2. Ensure Python 3 is installed.
 3. No additional dependencies are required.
 
-## Usage/ Procedure
+## How it works?
 
 ### Running the P2P Chat Application
 

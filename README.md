@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/2632c1bf-ee47-46cd-9a64-4b9baa171152)![image](https://github.com/user-attachments/assets/c65e42f5-3b18-4c53-bbb1-785efa76e279)# P2P Chat System - Team Decryptors
+# P2P Chat System - Team Decryptors
 
 ## Team Members
 

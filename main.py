@@ -49,7 +49,7 @@ def handle_client(client_socket, client_address):
             if len(data_parts) > 2:
                 message = data_parts[2].strip()
                 print(f"📩 Received from {client_address[0]}:{sender_port}: {message}")
-                client_socket.sendall(f"✅ Message received".encode())
+                client_socket.sendall(f"✅ Message received successfully!".encode())
 
         else:
             print(f"⚠️ Invalid sender port received from {client_address[0]}: {sender_port_data}")
@@ -74,7 +74,7 @@ def handle_client(client_socket, client_address):
 
             received_from[client_address[0]].add(sender_port)
             print(f"📩 Received from {client_address[0]}:{sender_port}: {message}")
-            client_socket.sendall(f"✅ Message received".encode())
+            client_socket.sendall(f"✅ Your message was succesfully received!".encode())
 
     except Exception as e:
         print(f"⚠️ Connection error with {client_address[0]}: {e}")
@@ -157,9 +157,8 @@ def query_peers_via_udp():
 
     message = "Who is online?"
     udp_socket.sendto(message.encode(), ('<broadcast>', UDP_PORT))
-    print("📡 Sent discovery request...")
 
-    print("\nDiscovered Peers:")
+    print("\nDiscovered Peers 📡:")
     try:
         while True:
             data, addr = udp_socket.recvfrom(1024)
@@ -168,7 +167,7 @@ def query_peers_via_udp():
             peer_team = response[1] if len(response) > 1 else "Unknown"
             print(f"{addr[0]}:{peer_port} - Team: {peer_team}")
     except socket.timeout:
-        print("🔎 Discovery complete.")
+        print("🔎 Above is the list of peers who are online.")
 
 
 def query_peers():
@@ -180,13 +179,13 @@ def query_peers():
             active = True
 
     if not active:
-        print("No connected peers")
+        print("No connected peers 😔")
 
 
 def query_previous_peers():
     print("\nPreviously Connected Peers:")
     if not previous_peers:
-        print("No previous connections.")
+        print("😔 You have not been previously connected with any peers.")
     else:
         for (ip, port), team in previous_peers.items():
             print(f"{ip}:{port} - Team: {team}")
@@ -194,14 +193,15 @@ def query_previous_peers():
 
 def connect_to_peer(ip, port, my_port, team_name):
     try:
+
         if (ip, port) not in active_connections:
             client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             client_socket.connect((ip, port))
             client_socket.sendall(f"{my_port}\n{team_name}\nCONNECT\n".encode())
             active_connections[(ip, port)] = client_socket
-            print(f"✅ Successfully connected to {ip}:{port}")
+            print(f"✅ Successfully connected to {ip}:{port}:{team_name}")
         else:
-            print(f"Already connected to {ip}:{port}")
+            print(f"Already connected to {ip}:{port}:{team_name}")
     except Exception as e:
         print(f"❌ Error connecting to {ip}:{port} - {e}")
 
@@ -212,24 +212,24 @@ def connect_to_active_peers(my_port, team_name):
             if (peer_ip, port) not in active_connections:
                 connect_to_peer(peer_ip, port, my_port, team_name)
 
-
 def send_mandatory_messages(my_port, team_name):
     for ip, port in MANDATORY_PEERS:
         try:
             connect_to_peer(ip, port, my_port, team_name)
             if (ip, port) in active_connections:
                 conn = active_connections[(ip, port)]
-                conn.sendall(f"Auto Message\n".encode())
-                print(f"✅ Mandatory message sent to {ip}:{port}")
+                conn.sendall(f"Decryptors here!\n".encode())
+                print(f"✅ Hurray! Mandatory message sent to {ip}:{port}")
         except Exception as e:
             print(f"❌ Could not send mandatory message to {ip}:{port} - {e}")
 
 
 def main():
-    print("DECRYPTORS P2P chat application started...")
+    print("DECRYPTORS - P2P Chat Application")
     team_name = input("Enter your team name: ")
     ip = input("Enter your IP address: ")
     port = int(input("Enter your port number: "))
+    print(f"Hello, {team_name}")
 
     # Start TCP server for chat
     server_thread = threading.Thread(target=start_server, args=(ip, port))
@@ -249,7 +249,7 @@ def main():
         print("2. Query active peers")
         print("3. Connect to active peers")
         print("4. Previously connected peers")
-        print("5. Discover peers")
+        print("5. Discover peers: Who is online?")
         print("0. Quit")
 
         choice = input("Enter choice: ")
@@ -266,7 +266,7 @@ def main():
         elif choice == "5":
             query_peers_via_udp()
         elif choice == "0":
-            print("Hope you had a good chat with peers on the network!")
+            print("Hope you had a good chat with peers on the network. Meet you again!")
             break
 
 

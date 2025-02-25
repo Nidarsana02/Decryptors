@@ -1,3 +1,8 @@
+#       DECRYPTORS
+# Nidarsana M - 230004031
+# Tripti Anand - 230001078
+# Nandini Kumari -  230001056
+
 import socket
 import threading
 
@@ -14,6 +19,14 @@ UDP_PORT = 50000  # Port for peer discovery broadcasts
 
 
 def handle_client(client_socket, client_address):
+    """
+    This function is designed to handle a client connection with a specified socket and address.
+
+    :param client_socket: A client socket object representing the connection to the client
+
+    :param client_address: The `client_address` parameter typically refers to the address of the client
+    connecting to the server. 
+    """
     try:
         sender_port_data = client_socket.recv(1024).decode().strip()
         data_parts = sender_port_data.split("\n", 2)
@@ -44,6 +57,12 @@ def handle_client(client_socket, client_address):
 
         while True:
             message = client_socket.recv(1024).decode().strip()
+            """
+            receives data from the client socket connection, decoding it from bytes to a string
+            using UTF-8 encoding, and then stripping any leading or trailing whitespaces from the
+            received message.
+            """
+            
             if not message:
                 continue
 
@@ -66,6 +85,15 @@ def handle_client(client_socket, client_address):
 
 
 def send_message(ip, port, my_port, team_name):
+    """
+    This function sends a message to a specified IP address and port, using a specific port.
+
+    :param ip: The `ip` parameter is the IP address of the destination server
+
+    :param port:  port number of the destination server or
+
+    :param my_port: The `my_port` parameter is the port number used to send the message. 
+    """
     if (ip, port) not in active_connections:
         connect_to_peer(ip, port, my_port, team_name)
 
@@ -198,7 +226,7 @@ def send_mandatory_messages(my_port, team_name):
 
 
 def main():
-    print("Starting P2P chat application...")
+    print("DECRYPTORS P2P chat application started...")
     team_name = input("Enter your team name: ")
     ip = input("Enter your IP address: ")
     port = int(input("Enter your port number: "))
@@ -238,7 +266,7 @@ def main():
         elif choice == "5":
             query_peers_via_udp()
         elif choice == "0":
-            print("Exiting...")
+            print("Hope you had a good chat with peers on the network!")
             break
 
 

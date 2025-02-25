@@ -1,4 +1,4 @@
-# P2P Chat System - Team Decryptors
+![image](https://github.com/user-attachments/assets/2632c1bf-ee47-46cd-9a64-4b9baa171152)![image](https://github.com/user-attachments/assets/c65e42f5-3b18-4c53-bbb1-785efa76e279)# P2P Chat System - Team Decryptors
 
 ## Team Members
 
@@ -16,7 +16,7 @@ This is a decentralized Peer-to-Peer (P2P) chat system that allows users to comm
 - Handling of message acknowledgments
 - Bonus question has also been attempted
 - Effiecient disconnection management
-- Peer discovery using UDP broadcasts
+- Peer discovery using UDP broadcasts(rest of the above uses TCP)
 
 
 ## Bonus Question Implementation
@@ -72,7 +72,7 @@ Note: Mandatory connect message will be sent to the specified IP address and por
 
 ### Mandatory Peers
 
-You can modify the `MANDATORY_PEERS` list in `final.py` to include default peers that should always be connected at startup.
+You can modify the `MANDATORY_PEERS` list in `main.py` to include default peers that should always be connected at startup.
 
 ### Main Menu Options
 1. **Send message**
@@ -98,9 +98,8 @@ You can modify the `MANDATORY_PEERS` list in `final.py` to include default peers
 ## What makes our project unique?
 Our projects stands out from the rest as
 
-- The query active peers not only gives the list of active peers, but it also includes the inactive peers to see the history of all the peers who were connected.
-- The user can keep sending messages without the need of entering the IP address and port number of the reciever again and again. While sending messages, if we want to return back to use the menu options, "menu" 
-  is to be typed and to disconnect from a peer, just type "exit".
+- The query active peers gives the list of active peers, from which it had previously recieved messages from.
+- The user can keep sending messages without the need of entering the IP address and port number of the reciever again and again. While sending messages, if we want to return back to use the menu options, "menu" is to be typed and to disconnect from a peer, just type "exit".
 - Once a peer is identified through querying, the connect_to_peer() function connects with the peers to initiate communication.
 - The query_peers_via_udp() function uses UDP broadcasts to discover available peers on the network, making it simple to find and connect to peers dynamically.
 - To disconnect from a peer, press "1" to send message and specify the index of the peer you want to disconnect from and then type "exit".
@@ -119,3 +118,38 @@ Our projects stands out from the rest as
 - **\`connect_to_active_peers\`**: Connects to all known active peers.
 - **\`send_mandatory_messages\`**: Sends messages to predefined mandatory peers.
 - **\`main\`**: Entry point that initializes the server, UDP listener, and user interface.
+
+## Screen Capture Uploads
+
+- **\`Interface\`**  
+![image](https://github.com/user-attachments/assets/cdf38237-4a6e-4975-954b-87f6165a96f8)
+
+- **\`Queries\`**
+  
+  sending message , peer 2 queries after peer 1 sends message to peer 2
+![image](https://github.com/user-attachments/assets/74b988a7-a7f8-4b7d-8d7d-87f78805989c)
+
+-Sample Workplan
+
+![image](https://github.com/user-attachments/assets/7b368a39-5fa5-4d2f-bd08-b23864b31cab)
+
+- **\`Connection Function\`**
+
+![image](https://github.com/user-attachments/assets/ac024f22-f210-4498-9ff3-7d44d56055f1)
+
+- **\`Previously Connected Peers\`**
+
+![image](https://github.com/user-attachments/assets/de2cbfb6-f17f-43da-b345-9ffd22351a32)
+
+- **\`Discovery Peer Function\`**
+
+![image](https://github.com/user-attachments/assets/fd07e6ba-0964-4bc9-829e-73230e5e5a52)
+
+- **\`Menu Option\`**
+
+![image](https://github.com/user-attachments/assets/1c12eea8-5181-4e12-bbb0-787b07296e00)
+
+- **\`Quit\`**
+
+![image](https://github.com/user-attachments/assets/703c0d2e-6560-4451-ae9c-b5cff47a9de6)
+

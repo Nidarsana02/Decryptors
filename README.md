@@ -79,9 +79,10 @@ You can modify the `MANDATORY_PEERS` list in `main.py` to include default peers 
    - Input recipient's IP and Port to establish a connection and send messages.
    - Use \`exit\` to disconnect from the recipient.
    - Use \`menu\` to return to the main menu.
+   - ![image](https://github.com/user-attachments/assets/cdf38237-4a6e-4975-954b-87f6165a96f8)
 
 2. **Query active peers**
-   - Displays peers you've received messages from during the current session.
+   - Displays peers you've received messages from during the current session(on terminal 2 in picture below).
    - ![image](https://github.com/user-attachments/assets/74b988a7-a7f8-4b7d-8d7d-87f78805989c)
 
 3. **Connect to active peers**
@@ -89,7 +90,7 @@ You can modify the `MANDATORY_PEERS` list in `main.py` to include default peers 
    - ![image](https://github.com/user-attachments/assets/ac024f22-f210-4498-9ff3-7d44d56055f1)
 
 4. **Previously connected peers**
-   - Lists all peers you've connected to in previous sessions.
+   - Lists all peers you've connected to in previous sessions (on terminal 3 in the picture below).
    - ![image](https://github.com/user-attachments/assets/de2cbfb6-f17f-43da-b345-9ffd22351a32)
 
 5. **Discover peers**
@@ -124,37 +125,7 @@ Our projects stands out from the rest as
 - **\`send_mandatory_messages\`**: Sends messages to predefined mandatory peers.
 - **\`main\`**: Entry point that initializes the server, UDP listener, and user interface.
 
-## Screen Capture Uploads
-
-- **\`Interface\`**  
-![image](https://github.com/user-attachments/assets/cdf38237-4a6e-4975-954b-87f6165a96f8)
-
-- **\`Queries\`**
-  
-  sending message , peer 2 queries after peer 1 sends message to peer 2
-![image](https://github.com/user-attachments/assets/74b988a7-a7f8-4b7d-8d7d-87f78805989c)
-
-- **\`Sample Workplan (given in assignment)\`**
+## Sample Workplan (given in assignment)
 
 ![image](https://github.com/user-attachments/assets/7b368a39-5fa5-4d2f-bd08-b23864b31cab)
-
-- **\`Connection Function\`**
-
-![image](https://github.com/user-attachments/assets/ac024f22-f210-4498-9ff3-7d44d56055f1)
-
-- **\`Previously Connected Peers\`**
-
-![image](https://github.com/user-attachments/assets/de2cbfb6-f17f-43da-b345-9ffd22351a32)
-
-- **\`Discovery Peer Function\`**
-
-![image](https://github.com/user-attachments/assets/fd07e6ba-0964-4bc9-829e-73230e5e5a52)
-
-- **\`Menu Option\`**
-
-![image](https://github.com/user-attachments/assets/1c12eea8-5181-4e12-bbb0-787b07296e00)
-
-- **\`Quit\`**
-
-![image](https://github.com/user-attachments/assets/703c0d2e-6560-4451-ae9c-b5cff47a9de6)
 

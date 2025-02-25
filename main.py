@@ -2,6 +2,7 @@
 # Nidarsana M - 230004031
 # Tripti Anand - 230001078
 # Nandini Kumari -  230001056
+#----------------------------------------------------------------------------------------------
 
 import socket
 import threading
@@ -225,7 +226,7 @@ def send_mandatory_messages(my_port, team_name):
 
 
 def main():
-    print("DECRYPTORS - P2P Chat Application")
+    print("____DECRYPTORS - P2P Chat Application____")
     team_name = input("Enter your team name: ")
     ip = input("Enter your IP address: ")
     port = int(input("Enter your port number: "))
@@ -244,7 +245,7 @@ def main():
     send_mandatory_messages(port, team_name)
 
     while True:
-        print("\n***** Menu *****")
+        print("\n______________ Menu______________")
         print("1. Send message")
         print("2. Query active peers")
         print("3. Connect to active peers")

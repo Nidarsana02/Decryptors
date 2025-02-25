@@ -6,6 +6,21 @@
 - **Tripti Anand** - Roll no: 230001078 - [GitHub Profile](https://github.com/Tripti1298) 
 - **Nandini Kumari** - Roll no: 230001056 - [GitHub Profile](https://github.com/dini-5002) 
 
+## Contents
+- [Overview](#overview)
+- [Features](#features)
+- [Bonus Question Implementation](#bonus-question-implementation)
+- [Project Structure](#project-structure)
+- [Requirements](#requirements)
+- [Installation](#installation)
+- [How it works?](#how-it-works)
+  - [Running the P2P Chat Application](#running-the-p2p-chat-application)
+  - [Mandatory Peers](#mandatory-peers)
+  - [Main Menu Options](#main-menu-options)
+- [What makes our project unique?](#what-makes-our-project-unique)
+- [Code Structure](#code-structure)
+- [Sample Workplan (given in assignment)](#sample-workplan-given-in-assignment)
+ 
 ## Overview
 This is a decentralized Peer-to-Peer (P2P) chat system that allows users to communicate directly without relying on a central server. The system enables multiple peers to connect, send messages, and maintain an active connection network.
 
